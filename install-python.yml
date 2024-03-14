@@ -1,0 +1,14 @@
+---
+- name: Install Python on Ubuntu
+  hosts: all  # You can specify the target hosts here
+  become: true  # To escalate privileges and perform the installation with sudo
+
+  tasks:
+    - name: Update apt package cache
+      apt:
+        update_cache: yes
+
+    - name: Install Python
+      apt:
+        name: python3  # Install Python 3 (default version on recent Ubuntu releases)
+        state: present  # Ensure Python is present
